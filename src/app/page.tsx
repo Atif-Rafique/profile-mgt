@@ -1,101 +1,391 @@
+import { Alert, Button, CustomPagination, OutlineButton, Table, Radio, Checkbox, Select, MonthSelector } from "@/components";
+
 import Image from "next/image";
+
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="p-4">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+
+      <h1>Alerts</h1>
+
+      <div className="max-w-[500px] py-2">
+
+
+        <Alert
+          message="A simple danger alert—check it out!"
+          type="error"
+        />
+
+
+        <Alert
+          message="A simple success alert—check it out!"
+          type="success"
+        />
+
+        <Alert
+          message="A simple warning alert—check it out!"
+          type="warning"
+        />
+
+
+
+      </div>
+
+
+      <h1 className="mt-4">Buttons</h1>
+
+      <div className="max-w-[800px] py-2 flex gap-2 flex-wrap">
+
+
+        <Button variant="primary">
+          Primary
+        </Button>
+
+        <Button variant="success">
+          Success
+        </Button>
+
+        <Button variant="danger">
+          Danger
+        </Button>
+
+        <Button variant="link">
+          Link
+        </Button>
+
+      </div>
+
+
+
+      <h1 className="mt-4">Outlined Buttons</h1>
+
+      <div className="max-w-[800px] py-2 flex gap-2 flex-wrap">
+
+
+        <OutlineButton variant="primary">
+          Primary
+        </OutlineButton>
+
+        <OutlineButton variant="success">
+          Success
+        </OutlineButton>
+
+        <OutlineButton variant="danger">
+          Danger
+        </OutlineButton>
+
+
+      </div>
+
+
+
+
+      <h1 className="mt-4">Pagination Working with icons</h1>
+
+
+
+      <div className="py-2">
+        <CustomPagination
+          total={500}
+          current={3}
+          pageSize={10}
+        />
+
+      </div>
+
+
+
+      <h1 className="mt-4">Pagination Disabled and Active states</h1>
+
+
+      <div className="py-2">
+        <CustomPagination
+          total={500}
+          current={1}
+          pageSize={10}
+        />
+      </div>
+
+
+
+
+      <h1 className="mt-4">Headings</h1>
+
+
+      <div className="py-2">
+        <h1>h1. heading</h1>
+        <h2>h2. heading</h2>
+        <h3>h3. heading</h3>
+      </div>
+
+
+
+      <h1 className="mt-4">Table</h1>
+
+      <div className="py-2">
+
+        <Table
+          headersData={[
+            {
+              title: 'Image',
+              dataIndex: 'image',
+              key: 'image',
+            },
+            {
+              title: '1st',
+              dataIndex: '1st',
+              key: '1st',
+            },
+            {
+              title: '2nd',
+              dataIndex: '2nd',
+              key: '2nd',
+            },
+
+            {
+              title: '3rd',
+              dataIndex: '3rd',
+              key: '3rd',
+            },
+
+            {
+              title: '4th',
+              dataIndex: '4th',
+              key: '4th',
+            },
+
+            {
+              title: '5th',
+              dataIndex: '5th',
+              key: '5th',
+            },
+
+            {
+              title: '6th',
+              dataIndex: '6th',
+              key: '6th',
+            },
+
+            {
+              title: '7th',
+              dataIndex: '7th',
+              key: '7th',
+            },
+
+            {
+              title: '8th',
+              dataIndex: '8th',
+              key: '8th',
+            },
+
+
+          ]}
+
+          tableData={[
+            {
+              key: '1',
+              image: <Image src="/image.src" alt="&nbsp;" width={20} height={20} />,
+              '1st': 'Mark',
+              '2nd': 'Otto',
+              '3rd': 'Text',
+              '4th': 'Second',
+              '5th': 'Text',
+              '6th': 'N/A',
+              '7th': <button className="bg-success px-3 py-[3px] text-xs rounded text-white">Completed</button>,
+              '8th': 'Date',
+            },
+            {
+              key: '2',
+              image: <Image src="/image.src" alt="&nbsp;" width={20} height={20} />,
+              '1st': 'Mark',
+              '2nd': 'Otto',
+              '3rd': 'Text',
+              '4th': 'Second',
+              '5th': 'Text',
+              '6th': 'N/A',
+              '7th': <button className="bg-yellow-500 px-3 py-[3px] text-xs rounded ">In progress</button>,
+              '8th': 'Date',
+            },
+            {
+              key: '3',
+              image: <Image src="/image.src" alt="&nbsp;" width={20} height={20} />,
+              '1st': 'Mark',
+              '2nd': 'Otto',
+              '3rd': 'Text',
+              '4th': 'Second',
+              '5th': 'Text',
+              '6th': 'N/A',
+              '7th': <button className="bg-orange-500 px-3 py-[3px] text-xs rounded ">Received</button>,
+              '8th': 'Date',
+            },
+            {
+              key: '4',
+              image: <Image src="/image.src" alt="&nbsp;" width={20} height={20} />,
+              '1st': 'Mark',
+              '2nd': 'Otto',
+              '3rd': 'Text',
+              '4th': 'Second',
+              '5th': 'Text',
+              '6th': 'N/A',
+              '7th': <button className="bg-yellow-500 px-3 py-[3px] text-xs rounded ">In progress</button>,
+              '8th': 'Date',
+            },
+            {
+              key: '5',
+              image: <Image src="/image.src" alt="&nbsp;" width={20} height={20} />,
+              '1st': 'Mark',
+              '2nd': 'Otto',
+              '3rd': 'Text',
+              '4th': 'Second',
+              '5th': 'Text',
+              '6th': 'N/A',
+              '7th': <button className="bg-orange-500 px-3 py-[3px] text-xs rounded ">Received</button>,
+              '8th': 'Date',
+            },
+            {
+              key: '6',
+              image: <Image src="/image.src" alt="&nbsp;" width={20} height={20} />,
+              '1st': 'Mark',
+              '2nd': 'Otto',
+              '3rd': 'Text',
+              '4th': 'Second',
+              '5th': 'Text',
+              '6th': 'N/A',
+              '7th': <button className="bg-success px-3 py-[3px] text-xs rounded text-white">Completed</button>,
+              '8th': 'Date',
+            },
+            {
+              key: '7',
+              image: <Image src="/image.src" alt="&nbsp;" width={20} height={20} />,
+              '1st': 'Mark',
+              '2nd': 'Otto',
+              '3rd': 'Text',
+              '4th': 'Second',
+              '5th': 'Text',
+              '6th': 'N/A',
+              '7th': <button className="bg-danger px-3 py-[3px] text-xs rounded text-white">Declined</button>,
+              '8th': '20.25.2024',
+            },
+          ]}
+        />
+
+      </div>
+
+
+      <div className="flex items-center gap-4 justify-between">
+
+        <div className="w-[300px]">
+          <h1 className="mt-4">Select</h1>
+
+
+          <div className="py-2">
+            <label className="block">Label title goes here</label>
+            <Select
+              placeholder="Select Option"
+              data={[
+                {
+                  value: 'Option 1',
+                  label: 'Option 1'
+                },
+                {
+                  value: 'Option 2',
+                  label: 'Option 2'
+                },
+                {
+                  value: 'Option 3',
+                  label: 'Option 3'
+                }
+              ]}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
+
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div>
+          <h1 className="mt-4">Radio</h1>
+
+          <div className="py-2">
+
+            <Radio data={[
+              {
+                label: 'active radio',
+                value: 'active radio',
+              },
+              {
+                label: 'Radio option',
+                value: 'Radio option',
+              },
+              {
+                label: 'Radio option',
+                value: 'Radio option',
+              }
+            ]} />
+
+
+          </div>
+        </div>
+
+
+
+        <div>
+
+          <h1 className="mt-4">Checkbox</h1>
+
+          <div className="py-2">
+
+            <Checkbox title="Active check box" />
+
+            <Checkbox title="Check box" />
+
+            <Checkbox title="Check box" />
+
+
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+
+
+      <h1 className="mt-4">Year check uncheck component</h1>
+
+      <div className="py-2 w-[500px]">
+
+        <label className="block text-sm font-medium text-gray-700 mb-2">Label goes here</label>
+
+        <div className="border border-gray-400 p-3">
+          <MonthSelector />
+        </div>
+
+
+        <div className="border border-gray-400 p-3 mt-4">
+          <MonthSelector />
+        </div>
+
+      </div>
+
+
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
     </div>
   );
 }
