@@ -1,11 +1,63 @@
-import { Alert, Button, CustomPagination, OutlineButton, Table, Radio, Checkbox, Select, MonthSelector } from "@/components";
+'use client'
+
+import { Alert, Button, CustomPagination, OutlineButton, Table, Radio, Checkbox, Select, MonthSelector, WithoutFormInput } from "@/components";
 
 import Image from "next/image";
+import { enqueueSnackbar } from "notistack";
+import { useState } from "react";
 
 
 export default function Home() {
+
+
+  const [preview, setPreview] = useState<any>(null);
+
+
+  const handleImageUpload = (event: any) => {
+    const file = event.target.files[0];
+
+    if (!file) {
+      enqueueSnackbar('No file selected', {
+        variant: "error",
+        autoHideDuration: 5000,
+      });
+      return;
+    }
+
+
+    // Validate file type (JPEG/PNG only)
+    const validTypes = ['image/jpeg', 'image/png'];
+    if (!validTypes.includes(file.type)) {
+      enqueueSnackbar('Invalid file type. Please upload a JPEG or PNG image.', {
+        variant: 'error',
+        autoHideDuration: 5000,
+      });
+      return;
+    }
+
+    // Validate file size (max 3MB)
+    const maxSizeInMB = 3;
+    if (file.size > maxSizeInMB * 1024 * 1024) {
+      enqueueSnackbar('File size exceeds 3MB. Please upload a smaller file.', {
+        variant: "error",
+        autoHideDuration: 5000,
+      });
+      return;
+    }
+
+    // Create a preview URL
+    const reader = new FileReader();
+    reader.onload = () => {
+      setPreview(reader.result as string); // Update the preview
+    };
+    reader.readAsDataURL(file);
+  };
+
+
+
+
   return (
-    <div className="p-4">
+    <div className="p-4 bg-[#eeeeee9c]">
 
 
       <h1>Alerts</h1>
@@ -352,6 +404,106 @@ export default function Home() {
 
 
 
+      <h1 className="mt-4">Category</h1>
+
+
+      <div className="py-2 w-[500px] bg-white p-4">
+
+
+        <div className="pb-2">
+          <WithoutFormInput
+            colorPrimary
+            type='text'
+            label='Name'
+            placeholder='Name'
+          />
+          <span className="opacity-50 text-xs">The name is how it appears on your site</span>
+        </div>
+
+
+        <div className="pb-2">
+          <WithoutFormInput
+            colorPrimary
+            type='text'
+            label='Slug'
+            placeholder='Slug'
+          />
+          <span className="opacity-50 text-xs max-w-[400px] block">The "slug" is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers and hyphens.</span>
+        </div>
+
+
+        <div className="pb-2">
+          <label className="block">Parent Category</label>
+          <Select
+            placeholder="Select Option"
+            data={[
+              {
+                value: 'Option 1',
+                label: 'Option 1'
+              },
+              {
+                value: 'Option 2',
+                label: 'Option 2'
+              },
+              {
+                value: 'Option 3',
+                label: 'Option 3'
+              }
+            ]}
+          />
+          <span className="opacity-50 text-xs max-w-[400px] block">Assign a parent term to establish a hierarchical structure.</span>
+        </div>
+
+
+        <div className="pb-2">
+          <label className="block">Parent Category</label>
+
+
+
+
+          <label htmlFor="profile-image-upload" className="cursor-pointer">
+
+
+
+            <div className="flex items-center gap-2 mt-5 text-sm font-semibold text-primary underline">
+
+              {preview ? (
+                <Image
+                  src={preview}
+                  alt="img-placeholder"
+                  width={80}
+                  height={80}
+                  className="w-[60px] h-[60px]"
+                />
+              ) : (
+                <div className="w-[60px] h-[60px] bg-gray-300 rounded-lg"></div>
+              )}
+              Upload Picture
+            </div>
+          </label>
+
+
+          <input
+            id="profile-image-upload"
+            type="file"
+            accept="image/jpeg,image/png"
+            style={{ display: 'none' }}
+            onChange={handleImageUpload}
+          />
+
+        </div>
+
+      </div>
+
+      <div className="py-4">
+        <OutlineButton variant="primary">
+          Add
+        </OutlineButton>
+      </div>
+
+
+
+
       <h1 className="mt-4">Year check uncheck component</h1>
 
       <div className="py-2 w-[500px]">
@@ -368,6 +520,10 @@ export default function Home() {
         </div>
 
       </div>
+
+
+
+
 
 
 

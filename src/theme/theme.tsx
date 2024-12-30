@@ -73,12 +73,13 @@ export const APP_THEME_CONFIG = {
 
         Input: {
             fontSize: 12,
-            colorPrimaryHover: 'var(--primary-dark-color)',
+            borderRadius: 0,
+            colorPrimaryHover: 'var(--primary-color-dark)',
             colorText: 'var(--primary-text-color)',
-            defaultBg: 'var(--primary-dark-color)',
+            defaultBg: 'var(--primary-color-dark)',
             colorBgContainer: 'transparent',
             colorTextPlaceholder: 'gray',
-            activeBorderColor: 'var(--primary-dark-color)',
+            activeBorderColor: 'var(--primary-color-dark)',
             activeShadow: 'var(--primary-box-shadow)'
         },
 

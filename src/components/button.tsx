@@ -24,7 +24,7 @@ export const Button: React.FC<ButtonProps> = ({ variant, children, onClick }) =>
 
     return (
         <button
-            className={`${styles[variant]} py-2 px-10 text-sm rounded-md transition-all`}
+            className={`${styles[variant]} py-[6px] px-10 text-sm rounded-md transition-all`}
             onClick={onClick}
         >
             {children}
@@ -40,14 +40,14 @@ export const Button: React.FC<ButtonProps> = ({ variant, children, onClick }) =>
 export const OutlineButton: React.FC<OutlineButtonProps> = ({ variant, children, onClick }) => {
 
     const styles: Record<string, string> = {
-        primary: "outline outline-1 outline-primary text-primary hover:bg-primary hover:text-white",
-        success: "outline outline-1 outline-success text-success hover:bg-success hover:text-white",
-        danger: "outline outline-1 outline-danger text-danger hover:bg-danger hover:text-white",
+        primary: "bg-white outline outline-1 outline-primary text-primary hover:bg-primary hover:text-white",
+        success: "bg-white outline outline-1 outline-success text-success hover:bg-success hover:text-white",
+        danger: "bg-white outline outline-1 outline-danger text-danger hover:bg-danger hover:text-white",
     };
 
     return (
         <button
-            className={`${styles[variant]}  py-2 px-10 text-sm rounded-md transition-all`}
+            className={`${styles[variant]}  py-[6px] px-10 text-sm rounded-md transition-all`}
             onClick={onClick}
         >
             {children}
