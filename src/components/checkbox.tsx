@@ -2,12 +2,12 @@
 import { Checkbox as AntCheckbox } from 'antd';
 
 
-export const Checkbox = ({ title = 'Checkbox' }: any) => {
+export const Checkbox = ({ title = 'Checkbox', className }: any) => {
 
 
 
     return (
-        <AntCheckbox checked={title === 'Active check box' ? true : false}>
+        <AntCheckbox defaultChecked={title === 'Active check box' ? true : false} className={className}>
             {title}
         </AntCheckbox>
     );

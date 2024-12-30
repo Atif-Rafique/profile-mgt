@@ -11,6 +11,7 @@ export default function Home() {
 
 
   const [preview, setPreview] = useState<any>(null);
+  const [uploadDragPreview, setUploadDragPreview] = useState<any>(null);
 
 
   const handleImageUpload = (event: any) => {
@@ -52,6 +53,64 @@ export default function Home() {
     };
     reader.readAsDataURL(file);
   };
+
+  const handleFileUpload = (event: any) => {
+    const file = event.target.files[0];
+
+    if (!file) {
+      enqueueSnackbar('No file selected', {
+        variant: "error",
+        autoHideDuration: 5000,
+      });
+      return;
+    }
+
+
+    // Validate file type (JPEG/PNG only)
+    const validTypes = ['image/jpeg', 'image/png'];
+    if (!validTypes.includes(file.type)) {
+      enqueueSnackbar('Invalid file type. Please upload a JPEG or PNG image.', {
+        variant: 'error',
+        autoHideDuration: 5000,
+      });
+      return;
+    }
+
+    // Create a preview URL
+    const reader = new FileReader();
+    reader.onload = () => {
+      setUploadDragPreview(reader.result as string); // Update the preview
+    };
+    reader.readAsDataURL(file);
+  };
+
+
+
+
+  const handleDrop = async (e: any) => {
+    e.preventDefault();
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+      // Handle the dropped files
+      // const file = files[0];
+
+      if (files.length > 0) {
+        const file = files[0];
+
+        // Create a preview URL
+        const reader = new FileReader();
+        reader.onload = () => {
+          setUploadDragPreview(reader.result as string); // Update the preview
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+  };
+
+
+  console.log('uploadDragPreview --->>', uploadDragPreview);
+
 
 
 
@@ -501,6 +560,65 @@ export default function Home() {
         </OutlineButton>
       </div>
 
+
+
+      <h1 className="mt-4">Upload Component</h1>
+
+
+      <div className="py-2 w-[500px] bg-white p-4">
+
+
+        <label className="cursor-pointer w-full">
+          <div
+            className="w-full mt-1 border-2 border-dashed border-gray-300 p-4 rounded-lg cursor-pointer hover:border-gray-500"
+
+            onDrop={handleDrop}
+            onDragOver={(e) => e.preventDefault()}
+          >
+            <p className="text-center text-gray-500">
+              Drag and Drop
+            </p>
+            <span className="text-gray-400 text-center block text-[10px]">File supported by PDF, .JPG or .PNG</span>
+            <input
+              type="file"
+              onChange={handleFileUpload}
+              accept=".pdf, image/jpeg, image/png"
+              // ref={fileInputRef}
+              style={{ display: "none" }}
+            />
+          </div>
+        </label>
+
+
+        {uploadDragPreview ? (
+          <div className="py-2 mx-auto w-full">
+            <Image
+              src={uploadDragPreview}
+              alt="img-placeholder"
+              width={80}
+              height={80}
+              className="w-[60px] h-[60px] mx-auto "
+            />
+          </div>
+        ) : null}
+
+
+        <Checkbox title="Where does it comes from?" className="text-gray-500" />
+
+        <p className="block text-base font-medium py-2">Label title goes here</p>
+
+        <Checkbox title="Lorem Ipsum is simply dummy text of the printing?" className="text-gray-500 w-full pb-2" />
+        <Checkbox title="Lorem Ipsum is simply dummy text of the printing?" className="text-gray-500 w-full pb-2" />
+        <Checkbox title="Lorem Ipsum is simply dummy text of the printing?" className="text-gray-500 w-full pb-2" />
+        <Checkbox title="Lorem Ipsum is simply dummy text of the printing?" className="text-gray-500 w-full pb-2" />
+        <Checkbox title="Lorem Ipsum is simply dummy text of the printing?" className="text-gray-500 w-full pb-2" />
+
+
+
+
+
+
+      </div>
 
 
 
