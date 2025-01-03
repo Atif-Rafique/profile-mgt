@@ -297,7 +297,7 @@ export default function Home() {
           tableData={[
             {
               key: '1',
-              image: <Image src="/image.src" alt="&nbsp;" width={20} height={20} />,
+              image: <Image src="/img-men-placeholder.jpg" alt="&nbsp;" width={25} height={25} />,
               '1st': 'Mark',
               '2nd': 'Otto',
               '3rd': 'Text',
@@ -309,7 +309,7 @@ export default function Home() {
             },
             {
               key: '2',
-              image: <Image src="/image.src" alt="&nbsp;" width={20} height={20} />,
+              image: <Image src="/img-men-placeholder.jpg" alt="&nbsp;" width={25} height={25} />,
               '1st': 'Mark',
               '2nd': 'Otto',
               '3rd': 'Text',
@@ -321,7 +321,7 @@ export default function Home() {
             },
             {
               key: '3',
-              image: <Image src="/image.src" alt="&nbsp;" width={20} height={20} />,
+              image: <Image src="/img-men-placeholder.jpg" alt="&nbsp;" width={25} height={25} />,
               '1st': 'Mark',
               '2nd': 'Otto',
               '3rd': 'Text',
@@ -333,7 +333,7 @@ export default function Home() {
             },
             {
               key: '4',
-              image: <Image src="/image.src" alt="&nbsp;" width={20} height={20} />,
+              image: <Image src="/img-men-placeholder.jpg" alt="&nbsp;" width={25} height={25} />,
               '1st': 'Mark',
               '2nd': 'Otto',
               '3rd': 'Text',
@@ -345,7 +345,7 @@ export default function Home() {
             },
             {
               key: '5',
-              image: <Image src="/image.src" alt="&nbsp;" width={20} height={20} />,
+              image: <Image src="/img-men-placeholder.jpg" alt="&nbsp;" width={25} height={25} />,
               '1st': 'Mark',
               '2nd': 'Otto',
               '3rd': 'Text',
@@ -357,7 +357,7 @@ export default function Home() {
             },
             {
               key: '6',
-              image: <Image src="/image.src" alt="&nbsp;" width={20} height={20} />,
+              image: <Image src="/img-men-placeholder.jpg" alt="&nbsp;" width={25} height={25} />,
               '1st': 'Mark',
               '2nd': 'Otto',
               '3rd': 'Text',
@@ -369,7 +369,7 @@ export default function Home() {
             },
             {
               key: '7',
-              image: <Image src="/image.src" alt="&nbsp;" width={20} height={20} />,
+              image: <Image src="/img-men-placeholder.jpg" alt="&nbsp;" width={25} height={25} />,
               '1st': 'Mark',
               '2nd': 'Otto',
               '3rd': 'Text',
