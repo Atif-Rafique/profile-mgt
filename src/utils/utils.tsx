@@ -1,6 +1,6 @@
 
 export const FormInputRules = (name: string, optional: boolean, form: any) => {
-    let rules: any = [{ required: !optional, message: <span className='text-xs'>Required field</span> }];
+    const rules: any = [{ required: !optional, message: <span className='text-xs'>Required field</span> }];
 
 
 
